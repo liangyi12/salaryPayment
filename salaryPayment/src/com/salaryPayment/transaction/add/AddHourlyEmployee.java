@@ -1,4 +1,4 @@
-package com.salaryPayment.transaction;
+package com.salaryPayment.transaction.add;
 
 import com.salaryPayment.payment.classification.HourlyClassification;
 import com.salaryPayment.payment.classification.PaymentClassification;

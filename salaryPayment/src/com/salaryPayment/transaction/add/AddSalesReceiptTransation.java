@@ -1,23 +1,24 @@
-package com.salaryPayment.transaction;
+package com.salaryPayment.transaction.add;
 
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.SalesReceipt;
 import com.salaryPayment.payment.classification.CommissionedClassification;
 import com.salaryPayment.payment.classification.PaymentClassification;
+import com.salaryPayment.transaction.Transaction;
 
-public class SalesReceiptTransation implements Transaction {
+public class AddSalesReceiptTransation implements Transaction {
 	private int empid;
 	private long date;
 	private int amount;
 	
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
 	
-	public SalesReceiptTransation() {
+	public AddSalesReceiptTransation() {
 		
 	}
 	
-	public SalesReceiptTransation(long date, int amount, int empid) {
+	public AddSalesReceiptTransation(long date, int amount, int empid) {
 		this.date = date;
 		this.amount = amount;
 		this.empid = empid;

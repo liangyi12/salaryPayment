@@ -1,23 +1,24 @@
-package com.salaryPayment.transaction;
+package com.salaryPayment.transaction.add;
 
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Affiliation;
 import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.ServiceCharge;
 import com.salaryPayment.domain.UnionAffiliation;
+import com.salaryPayment.transaction.Transaction;
 
-public class ServiceChargeTransation implements Transaction {
+public class AddServiceChargeTransation implements Transaction {
 	private int itsMemberId;
 	private long itsDate;
 	private double itsCharge;
 	
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
 	
-	public ServiceChargeTransation() {
+	public AddServiceChargeTransation() {
 		
 	}
 	
-	public ServiceChargeTransation(int memberId, long date, double charge) {
+	public AddServiceChargeTransation(int memberId, long date, double charge) {
 		itsMemberId = memberId;
 		itsDate = date;
 		itsCharge = charge;

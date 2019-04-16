@@ -1,23 +1,24 @@
-package com.salaryPayment.transaction;
+package com.salaryPayment.transaction.add;
 
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.TimeCard;
 import com.salaryPayment.payment.classification.HourlyClassification;
 import com.salaryPayment.payment.classification.PaymentClassification;
+import com.salaryPayment.transaction.Transaction;
 
-public class TimeCardTransation implements Transaction {
+public class AddTimeCardTransation implements Transaction {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
 	
 	private long date;
 	private double hours;
 	private int empid;
 	
-	public TimeCardTransation() {
+	public AddTimeCardTransation() {
 		
 	}
 	
-	public TimeCardTransation(long date, double hours, int empid) {
+	public AddTimeCardTransation(long date, double hours, int empid) {
 		this.date = date;
 		this.hours = hours;
 		this.empid = empid;

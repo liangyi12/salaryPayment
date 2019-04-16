@@ -1,4 +1,4 @@
-package com.salaryPayment.test;
+package com.salaryPayment.test.delete;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,8 @@ import org.junit.Test;
 
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
-import com.salaryPayment.transaction.AddHourlyEmployee;
-import com.salaryPayment.transaction.DeleteEmployeeTransation;
+import com.salaryPayment.transaction.add.AddHourlyEmployee;
+import com.salaryPayment.transaction.delete.DeleteEmployeeTransation;
 
 public class TestDeleteEmployee {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;

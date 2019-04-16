@@ -1,4 +1,4 @@
-package com.salaryPayment.test;
+package com.salaryPayment.test.add;
 
 import static org.junit.Assert.*;
 
@@ -9,10 +9,10 @@ import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.SalesReceipt;
 import com.salaryPayment.payment.classification.CommissionedClassification;
 import com.salaryPayment.payment.classification.PaymentClassification;
-import com.salaryPayment.transaction.AddCommissionedEmployee;
-import com.salaryPayment.transaction.SalesReceiptTransation;
+import com.salaryPayment.transaction.add.AddCommissionedEmployee;
+import com.salaryPayment.transaction.add.AddSalesReceiptTransation;
 
-public class TestSalesReceiptTransation {
+public class TestAddSalesReceiptTransation {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
 
 	@Test
@@ -21,7 +21,7 @@ public class TestSalesReceiptTransation {
 		AddCommissionedEmployee t = new AddCommissionedEmployee(empid, "test", "hoe", 1000.0, 55.5);
 		t.excute();
 		
-		SalesReceiptTransation st = new SalesReceiptTransation(12333, 15, empid);
+		AddSalesReceiptTransation st = new AddSalesReceiptTransation(12333, 15, empid);
 		st.excute();
 		
 		Employee e = gpayrollDatabase.getEmployee(empid);

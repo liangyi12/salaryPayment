@@ -1,4 +1,4 @@
-package com.salaryPayment.test;
+package com.salaryPayment.test.add;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +12,7 @@ import com.salaryPayment.payment.method.HoldMethod;
 import com.salaryPayment.payment.method.PaymentMethod;
 import com.salaryPayment.payment.schedule.MonthlySchedule;
 import com.salaryPayment.payment.schedule.PaymentSchedule;
-import com.salaryPayment.transaction.AddSalariedEmployee;
+import com.salaryPayment.transaction.add.AddSalariedEmployee;
 
 public class TestAddSalariedEmployee {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;

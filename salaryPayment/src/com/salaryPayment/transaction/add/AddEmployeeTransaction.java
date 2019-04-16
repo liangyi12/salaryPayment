@@ -1,4 +1,4 @@
-package com.salaryPayment.transaction;
+package com.salaryPayment.transaction.add;
 
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
@@ -6,6 +6,7 @@ import com.salaryPayment.payment.classification.PaymentClassification;
 import com.salaryPayment.payment.method.HoldMethod;
 import com.salaryPayment.payment.method.PaymentMethod;
 import com.salaryPayment.payment.schedule.PaymentSchedule;
+import com.salaryPayment.transaction.Transaction;
 
 public abstract class AddEmployeeTransaction implements Transaction{
 	private int itsEmpid;

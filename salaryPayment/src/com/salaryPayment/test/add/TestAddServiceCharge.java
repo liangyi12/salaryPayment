@@ -1,4 +1,4 @@
-package com.salaryPayment.test;
+package com.salaryPayment.test.add;
 
 import static org.junit.Assert.*;
 
@@ -8,8 +8,8 @@ import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.ServiceCharge;
 import com.salaryPayment.domain.UnionAffiliation;
-import com.salaryPayment.transaction.AddHourlyEmployee;
-import com.salaryPayment.transaction.ServiceChargeTransation;
+import com.salaryPayment.transaction.add.AddHourlyEmployee;
+import com.salaryPayment.transaction.add.AddServiceChargeTransation;
 
 public class TestAddServiceCharge {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
@@ -29,7 +29,7 @@ public class TestAddServiceCharge {
 		
 		gpayrollDatabase.addUnionMember(memberid, e);
 		
-		ServiceChargeTransation st = new ServiceChargeTransation(memberid, 12333, 12.95);
+		AddServiceChargeTransation st = new AddServiceChargeTransation(memberid, 12333, 12.95);
 		st.excute();
 		
 		ServiceCharge sc = af.getServiceCharge(12333);

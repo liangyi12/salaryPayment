@@ -1,4 +1,4 @@
-package com.salaryPayment.test;
+package com.salaryPayment.test.add;
 
 import static org.junit.Assert.*;
 
@@ -6,41 +6,39 @@ import org.junit.Test;
 
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
-import com.salaryPayment.payment.classification.CommissionedClassification;
+import com.salaryPayment.payment.classification.HourlyClassification;
 import com.salaryPayment.payment.classification.PaymentClassification;
 import com.salaryPayment.payment.method.HoldMethod;
 import com.salaryPayment.payment.method.PaymentMethod;
-import com.salaryPayment.payment.schedule.BlweeklySchedule;
 import com.salaryPayment.payment.schedule.PaymentSchedule;
-import com.salaryPayment.transaction.AddCommissionedEmployee;
+import com.salaryPayment.payment.schedule.WeeklySchedule;
+import com.salaryPayment.transaction.add.AddHourlyEmployee;
 
-public class TestAddCommissionedEmployee {
+public class TestAddHourlyEmployee {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
-
 
 	@Test
 	public void payrollTest() {
-		int empid = 3;
-		AddCommissionedEmployee t = new AddCommissionedEmployee(empid, "Bob", "home", 10000.0, 55.5);
+		int empId = 2;
+		
+		AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bob", "home", 55.5);
 		t.excute();
 		
-		Employee e = gpayrollDatabase.getEmployee(empid);
+		Employee e = gpayrollDatabase.getEmployee(empId);
 		assertNotNull(e);
 		
 		PaymentClassification pc = e.getClassification();
-		CommissionedClassification cc = (CommissionedClassification)pc;
-		assertNotNull(cc);
-		assertEquals(10000.0, cc.getSalary(), .01);
-		assertEquals(55.5, cc.getCommissionRate(), .01);
+		HourlyClassification hc = (HourlyClassification)pc;
+		assertNotNull(hc);
+		assertEquals(55.5, hc.getHourlyRate(), .01);
 		
 		PaymentSchedule ps = e.getSchedule();
-		BlweeklySchedule bs = (BlweeklySchedule)ps;
-		assertNotNull(bs);
+		WeeklySchedule ws = (WeeklySchedule)ps;
+		assertNotNull(ws);
 		
 		PaymentMethod pm = e.getMethod();
 		HoldMethod hm = (HoldMethod)pm;
 		assertNotNull(hm);
-		
 		
 	}
 

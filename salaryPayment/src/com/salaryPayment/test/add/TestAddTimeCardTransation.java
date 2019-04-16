@@ -1,4 +1,4 @@
-package com.salaryPayment.test;
+package com.salaryPayment.test.add;
 
 import static org.junit.Assert.*;
 
@@ -9,10 +9,10 @@ import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.TimeCard;
 import com.salaryPayment.payment.classification.HourlyClassification;
 import com.salaryPayment.payment.classification.PaymentClassification;
-import com.salaryPayment.transaction.AddHourlyEmployee;
-import com.salaryPayment.transaction.TimeCardTransation;
+import com.salaryPayment.transaction.add.AddHourlyEmployee;
+import com.salaryPayment.transaction.add.AddTimeCardTransation;
 
-public class TestTimeCardTransation {
+public class TestAddTimeCardTransation {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
 
 	@Test
@@ -22,7 +22,7 @@ public class TestTimeCardTransation {
 		AddHourlyEmployee t = new AddHourlyEmployee(empid, "test", "home", 55.5);
 		t.excute();
 		
-		TimeCardTransation tct = new TimeCardTransation(date, 8.0, empid);
+		AddTimeCardTransation tct = new AddTimeCardTransation(date, 8.0, empid);
 		tct.excute();
 		
 		Employee e = gpayrollDatabase.getEmployee(empid);
