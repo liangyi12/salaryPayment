@@ -12,8 +12,9 @@ import org.junit.runners.Suite.SuiteClasses;
 		TestChangeCommissionedTransation.class,
 		TestChangeDirectTransation.class, TestChangeHoldTransation.class,
 		TestChangeHourlyTransation.class, TestChangeMailTransation.class,
-		TestChangeNameTransation.class, TestChangeSalariedTransation.class,
-		TestDeleteEmployee.class })
+		TestChangeMemberTransation.class, TestChangeNameTransation.class,
+		TestChangeSalariedTransation.class,
+		TestChangeUnaffiliatedTransation.class, TestDeleteEmployee.class })
 public class AllTests {
 
 }

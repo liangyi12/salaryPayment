@@ -10,6 +10,8 @@ public class PayrollDatabase {
 	
 	private Map<Integer, Employee> itsEmployees = new HashMap<Integer, Employee>();
 	
+	private Map<Integer, Employee> itsMembers = new HashMap<Integer, Employee>();
+	
 	public PayrollDatabase() {
 		
 	}
@@ -31,11 +33,15 @@ public class PayrollDatabase {
 	}
 
 	public Employee getUnionMember(int itsMemberId) {
-		return itsEmployees.get(itsMemberId);
+		return itsMembers.get(itsMemberId);
 	}
 
 	public void addUnionMember(int memberid, Employee e) {
-		itsEmployees.put(memberid, e);
+		itsMembers.put(memberid, e);
+	}
+	
+	public void removeUnionMember(int memberid) {
+		itsMembers.remove(memberid);
 	}
 	
 

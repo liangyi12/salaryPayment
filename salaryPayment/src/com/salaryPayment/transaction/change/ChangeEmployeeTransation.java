@@ -27,6 +27,6 @@ public abstract class ChangeEmployeeTransation implements Transaction{
 		}
 	}
 	
-	public abstract void change(Employee e);
+	public abstract void change(Employee e) throws Exception;
 
 }

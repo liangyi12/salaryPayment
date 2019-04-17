@@ -26,4 +26,22 @@ public class UnionAffiliation extends Affiliation {
 	public ServiceCharge getServiceCharge(long date) {
 		return serviceCharges.get(date);
 	}
+
+	public int getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
+	}
+
+	public double getDues() {
+		return dues;
+	}
+
+	public void setDues(double dues) {
+		this.dues = dues;
+	}
+	
+	
 }
