@@ -1,10 +1,10 @@
 package com.salaryPayment.transaction.change;
 
+import com.salaryPayment.affiliation.Affiliation;
+import com.salaryPayment.affiliation.NoAffiliation;
+import com.salaryPayment.affiliation.UnionAffiliation;
 import com.salaryPayment.database.PayrollDatabase;
-import com.salaryPayment.domain.Affiliation;
 import com.salaryPayment.domain.Employee;
-import com.salaryPayment.domain.NoAffiliation;
-import com.salaryPayment.domain.UnionAffiliation;
 
 public class ChangeUnaffiliatedTransation extends ChangeAffiliationTransation {
 	PayrollDatabase gPayrollDatabase = PayrollDatabase.gpayrollDatabase;

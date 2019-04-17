@@ -1,9 +1,12 @@
-package com.salaryPayment.domain;
+package com.salaryPayment.affiliation;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class UnionAffiliation extends Affiliation {
+import com.salaryPayment.domain.Paycheck;
+import com.salaryPayment.domain.ServiceCharge;
+
+public class UnionAffiliation implements Affiliation {
 	private int memberId;
 	private double dues;
 	
@@ -41,6 +44,12 @@ public class UnionAffiliation extends Affiliation {
 
 	public void setDues(double dues) {
 		this.dues = dues;
+	}
+
+	@Override
+	public double calculateDeductions(Paycheck pc) {
+		
+		return 0;
 	}
 	
 	

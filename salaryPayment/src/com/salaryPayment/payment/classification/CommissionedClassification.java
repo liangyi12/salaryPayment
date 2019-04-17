@@ -3,9 +3,10 @@ package com.salaryPayment.payment.classification;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.salaryPayment.domain.Paycheck;
 import com.salaryPayment.domain.SalesReceipt;
 
-public class CommissionedClassification extends PaymentClassification {
+public class CommissionedClassification implements PaymentClassification {
 	private double salary;
 	private double commissionRate;
 	
@@ -42,6 +43,12 @@ public class CommissionedClassification extends PaymentClassification {
 
 	public SalesReceipt getSalesReceipt(long date) {
 		return salesReceipts.get(date);
+	}
+
+	@Override
+	public double calculatePay(Paycheck pc) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

@@ -1,6 +1,6 @@
 package com.salaryPayment.transaction.change;
 
-import com.salaryPayment.domain.MailMethod;
+import com.salaryPayment.payment.method.MailMethod;
 import com.salaryPayment.payment.method.PaymentMethod;
 
 public class ChangeMailTransation extends ChangeMethodTransation {

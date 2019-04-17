@@ -1,8 +1,9 @@
-package com.salaryPayment.domain;
+package com.salaryPayment.payment.method;
 
-import com.salaryPayment.payment.method.PaymentMethod;
+import com.salaryPayment.domain.Paycheck;
 
-public class MailMethod extends PaymentMethod {
+
+public class MailMethod implements PaymentMethod {
 	private String address;
 	
 	public MailMethod() {
@@ -19,6 +20,12 @@ public class MailMethod extends PaymentMethod {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Override
+	public void pay(Paycheck pc) {
+		
+		
 	}
 	
 	

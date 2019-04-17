@@ -1,6 +1,6 @@
 package com.salaryPayment.transaction.change;
 
-import com.salaryPayment.domain.Affiliation;
+import com.salaryPayment.affiliation.Affiliation;
 import com.salaryPayment.domain.Employee;
 
 public abstract class ChangeAffiliationTransation extends ChangeEmployeeTransation{

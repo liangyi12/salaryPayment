@@ -1,5 +1,14 @@
 package com.salaryPayment.payment.schedule;
 
-public class WeeklySchedule extends PaymentSchedule {
+import java.util.Date;
+
+import com.salaryPayment.util.DateUtil;
+
+public class WeeklySchedule implements PaymentSchedule {
+
+	@Override
+	public boolean isPayDate(Date payDate) {
+		return DateUtil.isFridayOfWeek(payDate);
+	}
 
 }

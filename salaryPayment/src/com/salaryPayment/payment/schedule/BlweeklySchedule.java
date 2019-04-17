@@ -1,5 +1,13 @@
 package com.salaryPayment.payment.schedule;
 
-public class BlweeklySchedule extends PaymentSchedule {
+import java.util.Date;
+
+public class BlweeklySchedule implements PaymentSchedule {
+
+	@Override
+	public boolean isPayDate(Date payDate) {
+		
+		return false;
+	}
 
 }

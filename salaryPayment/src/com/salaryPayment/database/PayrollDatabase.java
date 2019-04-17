@@ -1,7 +1,10 @@
 package com.salaryPayment.database;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.salaryPayment.domain.Employee;
 
@@ -42,6 +45,14 @@ public class PayrollDatabase {
 	
 	public void removeUnionMember(int memberid) {
 		itsMembers.remove(memberid);
+	}
+
+	public List<Employee> getEmployees() {
+		List<Employee> employees = new ArrayList<Employee>();
+		for (Entry<Integer, Employee>  entry : itsEmployees.entrySet()) {
+			employees.add((Employee)entry.getValue());
+		}
+		return employees;
 	}
 	
 

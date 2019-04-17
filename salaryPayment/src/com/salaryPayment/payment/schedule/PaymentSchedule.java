@@ -1,5 +1,9 @@
 package com.salaryPayment.payment.schedule;
 
-public class PaymentSchedule {
+import java.util.Date;
+
+public interface PaymentSchedule {
+
+	public boolean isPayDate(Date payDate);
 
 }

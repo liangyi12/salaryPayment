@@ -1,7 +1,9 @@
 package com.salaryPayment.payment.classification;
 
+import com.salaryPayment.domain.Paycheck;
 
-public class SalariedClassification extends PaymentClassification {
+
+public class SalariedClassification implements PaymentClassification {
 	private double salary;
 
 	public SalariedClassification(double itsSalary) {
@@ -14,6 +16,11 @@ public class SalariedClassification extends PaymentClassification {
 
 	public void setSalary(double salary) {
 		this.salary = salary;
+	}
+
+	@Override
+	public double calculatePay(Paycheck pc) {
+		return salary;
 	}
 	
 	

@@ -1,5 +1,9 @@
 package com.salaryPayment.payment.classification;
 
-public class PaymentClassification {
+import com.salaryPayment.domain.Paycheck;
+
+public interface PaymentClassification {
+
+	public double calculatePay(Paycheck pc);
 
 }

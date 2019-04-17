@@ -1,6 +1,6 @@
 package com.salaryPayment.transaction.change;
 
-import com.salaryPayment.domain.DirectMethod;
+import com.salaryPayment.payment.method.DirectMethod;
 import com.salaryPayment.payment.method.PaymentMethod;
 
 public class ChangeDirectTransation extends ChangeMethodTransation {

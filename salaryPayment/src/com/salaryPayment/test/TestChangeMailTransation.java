@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
-import com.salaryPayment.domain.MailMethod;
+import com.salaryPayment.payment.method.MailMethod;
 import com.salaryPayment.payment.method.PaymentMethod;
 import com.salaryPayment.transaction.add.AddHourlyEmployee;
 import com.salaryPayment.transaction.change.ChangeMailTransation;

@@ -1,5 +1,8 @@
 package com.salaryPayment.domain;
 
+import java.util.Date;
+
+import com.salaryPayment.affiliation.Affiliation;
 import com.salaryPayment.payment.classification.PaymentClassification;
 import com.salaryPayment.payment.method.PaymentMethod;
 import com.salaryPayment.payment.schedule.PaymentSchedule;
@@ -73,6 +76,21 @@ public class Employee {
 	
 	public void setAffiliation(Affiliation affiliation) {
 		this.affiliation = affiliation;
+	}
+
+	public boolean isPayDate(Date payDate) {
+		return schedule.isPayDate(payDate);
+	}
+
+	public void payDay(Paycheck pc) {
+		double grossPay = classification.calculatePay(pc);
+		double deductions = affiliation.calculateDeductions(pc);
+		double netpay = grossPay - deductions;
+		pc.setGrossPay(grossPay);
+		pc.setDeductions(deductions);
+		pc.setNetPay(netpay);
+		
+		method.pay(pc);
 	}
 
 	

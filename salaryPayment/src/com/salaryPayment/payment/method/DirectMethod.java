@@ -1,8 +1,9 @@
-package com.salaryPayment.domain;
+package com.salaryPayment.payment.method;
 
-import com.salaryPayment.payment.method.PaymentMethod;
+import com.salaryPayment.domain.Paycheck;
 
-public class DirectMethod extends PaymentMethod {
+
+public class DirectMethod implements PaymentMethod {
 	private String bank;
 	private String account;
 	
@@ -30,6 +31,12 @@ public class DirectMethod extends PaymentMethod {
 
 	public void setAccount(String account) {
 		this.account = account;
+	}
+
+	@Override
+	public void pay(Paycheck pc) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

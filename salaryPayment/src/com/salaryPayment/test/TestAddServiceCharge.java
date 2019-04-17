@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.salaryPayment.affiliation.UnionAffiliation;
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.ServiceCharge;
-import com.salaryPayment.domain.UnionAffiliation;
 import com.salaryPayment.transaction.add.AddHourlyEmployee;
 import com.salaryPayment.transaction.add.AddServiceChargeTransation;
 
