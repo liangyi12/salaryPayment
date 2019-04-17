@@ -15,7 +15,7 @@ import org.junit.runners.Suite.SuiteClasses;
 		TestChangeMemberTransation.class, TestChangeNameTransation.class,
 		TestChangeSalariedTransation.class,
 		TestChangeUnaffiliatedTransation.class, TestDeleteEmployee.class,
-		TestPaySingleSalariedEmployee.class })
+		TestPaySingleHourlyEmployee.class, TestPaySingleSalariedEmployee.class })
 public class AllTests {
 
 }

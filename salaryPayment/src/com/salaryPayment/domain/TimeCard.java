@@ -1,23 +1,25 @@
 package com.salaryPayment.domain;
 
+import java.util.Date;
+
 public class TimeCard {
-	private long date;
+	private Date date;
 	private double hours;
 	
 	public TimeCard() {
 		
 	}
 	
-	public TimeCard(long date, double hours) {
+	public TimeCard(Date date, double hours) {
 		this.date = date;
 		this.hours = hours;
 	}
 
-	public long getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(long date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

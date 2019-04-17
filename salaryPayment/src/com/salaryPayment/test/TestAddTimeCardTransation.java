@@ -2,6 +2,9 @@ package com.salaryPayment.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.junit.Test;
 
 import com.salaryPayment.database.PayrollDatabase;
@@ -18,9 +21,12 @@ public class TestAddTimeCardTransation {
 	@Test
 	public void payRolltest() throws Exception {
 		int empid = 2;
-		long date = 12333;
 		AddHourlyEmployee t = new AddHourlyEmployee(empid, "test", "home", 55.5);
 		t.excute();
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2019, Calendar.APRIL, 4);
+		Date date = calendar.getTime();
 		
 		AddTimeCardTransation tct = new AddTimeCardTransation(date, 8.0, empid);
 		tct.excute();
@@ -32,7 +38,7 @@ public class TestAddTimeCardTransation {
 		HourlyClassification hc = (HourlyClassification)pc;
 		assertNotNull(hc);
 		
-		TimeCard tc = hc.getTimeCard(date);
+		TimeCard tc = hc.getTimeCard(date.getTime());
 		assertNotNull(tc);
 		assertEquals(8.0, tc.getHours(), .01);
 		

@@ -1,5 +1,7 @@
 package com.salaryPayment.transaction.add;
 
+import java.util.Date;
+
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.TimeCard;
@@ -10,7 +12,7 @@ import com.salaryPayment.transaction.Transaction;
 public class AddTimeCardTransation implements Transaction {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
 	
-	private long date;
+	private Date date;
 	private double hours;
 	private int empid;
 	
@@ -18,7 +20,7 @@ public class AddTimeCardTransation implements Transaction {
 		
 	}
 	
-	public AddTimeCardTransation(long date, double hours, int empid) {
+	public AddTimeCardTransation(Date date, double hours, int empid) {
 		this.date = date;
 		this.hours = hours;
 		this.empid = empid;
