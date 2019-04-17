@@ -5,42 +5,42 @@ import com.salaryPayment.payment.method.PaymentMethod;
 import com.salaryPayment.payment.schedule.PaymentSchedule;
 
 public class Employee {
-	private int itsEmpid;
-	private String itsName;
-	private String itsAddress;
+	private int empid;
+	private String name;
+	private String address;
 	private PaymentClassification classification;
 	private PaymentSchedule schedule;
 	private PaymentMethod method;
 	private Affiliation affiliation;
 
 	public Employee(int itsEmpid, String itsName, String itsAddress) {
-		this.itsEmpid = itsEmpid;
-		this.itsName = itsName;
-		this.itsAddress = itsAddress;
+		this.empid = itsEmpid;
+		this.name = itsName;
+		this.address = itsAddress;
 	}
 
-	public int getItsEmpid() {
-		return itsEmpid;
+	public int getEmpid() {
+		return empid;
 	}
 
-	public void setItsEmpid(int itsEmpid) {
-		this.itsEmpid = itsEmpid;
+	public void setEmpid(int itsEmpid) {
+		this.empid = itsEmpid;
 	}
 
-	public String getItsName() {
-		return itsName;
+	public String getName() {
+		return name;
 	}
 
-	public void setItsName(String itsName) {
-		this.itsName = itsName;
+	public void setName(String itsName) {
+		this.name = itsName;
 	}
 
-	public String getItsAddress() {
-		return itsAddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setItsAddress(String itsAddress) {
-		this.itsAddress = itsAddress;
+	public void setAddress(String itsAddress) {
+		this.address = itsAddress;
 	}
 
 	public PaymentClassification getClassification() {

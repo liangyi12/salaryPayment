@@ -1,4 +1,4 @@
-package com.salaryPayment.test.add;
+package com.salaryPayment.test;
 
 import static org.junit.Assert.*;
 
@@ -24,7 +24,7 @@ public class TestAddSalariedEmployee {
 		t.excute();
 		
 		Employee e = gpayrollDatabase.getEmployee(empId);
-		assertEquals("bob", e.getItsName());
+		assertEquals("bob", e.getName());
 		
 		PaymentClassification pc = e.getClassification();
 		SalariedClassification sc = (SalariedClassification)pc;

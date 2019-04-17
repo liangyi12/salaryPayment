@@ -1,4 +1,4 @@
-package com.salaryPayment.test.add;
+package com.salaryPayment.test;
 
 import static org.junit.Assert.*;
 
