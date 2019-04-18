@@ -41,28 +41,23 @@ public class HourlyClassification implements PaymentClassification{
 	@Override
 	public double calculatePay(Paycheck pc) {
 		double grossPay = 0;
-		List<Date> workDates = new ArrayList<Date>();
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(pc.getPayDate());
 		Date date = new Date();
 		
-		for (int i=1; i < 8; i++) {
-			calendar.add(Calendar.DAY_OF_MONTH, -1);
+		for (int i=0; i < 5; i++) {
 			date = calendar.getTime();
-			workDates.add(date);
-		}
-		
-		for(Date date1 : workDates) {
-			TimeCard tc = getTimeCard(date1.getTime());
+			TimeCard tc = getTimeCard(date.getTime());
 			if (tc != null) {
 				if (tc.getHours() > 8.0) {
 					grossPay +=(8.0 +  (tc.getHours() - 8.0) * 1.5) * hourlyRate;
 				}else{
 					grossPay += tc.getHours() * hourlyRate;
 				}
-				
 			}
+			calendar.add(Calendar.DAY_OF_MONTH, -1);
 		}
+		
 		return grossPay;
 	}
 	
