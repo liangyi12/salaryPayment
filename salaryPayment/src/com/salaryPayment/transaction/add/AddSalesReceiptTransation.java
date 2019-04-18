@@ -1,5 +1,7 @@
 package com.salaryPayment.transaction.add;
 
+import java.util.Date;
+
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.domain.Employee;
 import com.salaryPayment.domain.SalesReceipt;
@@ -9,7 +11,7 @@ import com.salaryPayment.transaction.Transaction;
 
 public class AddSalesReceiptTransation implements Transaction {
 	private int empid;
-	private long date;
+	private Date date;
 	private int amount;
 	
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
@@ -18,7 +20,7 @@ public class AddSalesReceiptTransation implements Transaction {
 		
 	}
 	
-	public AddSalesReceiptTransation(long date, int amount, int empid) {
+	public AddSalesReceiptTransation(Date date, int amount, int empid) {
 		this.date = date;
 		this.amount = amount;
 		this.empid = empid;

@@ -2,6 +2,8 @@ package com.salaryPayment.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
+
 import org.junit.Test;
 
 import com.salaryPayment.database.PayrollDatabase;
@@ -21,7 +23,9 @@ public class TestAddSalesReceiptTransation {
 		AddCommissionedEmployee t = new AddCommissionedEmployee(empid, "test", "hoe", 1000.0, 55.5);
 		t.excute();
 		
-		AddSalesReceiptTransation st = new AddSalesReceiptTransation(12333, 15, empid);
+		Date date = new Date();
+		
+		AddSalesReceiptTransation st = new AddSalesReceiptTransation(date, 15, empid);
 		st.excute();
 		
 		Employee e = gpayrollDatabase.getEmployee(empid);
@@ -31,7 +35,7 @@ public class TestAddSalesReceiptTransation {
 		CommissionedClassification cc = (CommissionedClassification)pc;
 		assertNotNull(cc);
 		
-		SalesReceipt sr = cc.getSalesReceipt(12333);
+		SalesReceipt sr = cc.getSalesReceipt(date.getTime());
 		assertNotNull(sr);
 		assertEquals(15, sr.getAmount());
 	}

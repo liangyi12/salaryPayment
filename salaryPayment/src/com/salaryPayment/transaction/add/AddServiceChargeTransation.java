@@ -1,5 +1,7 @@
 package com.salaryPayment.transaction.add;
 
+import java.util.Date;
+
 import com.salaryPayment.affiliation.Affiliation;
 import com.salaryPayment.affiliation.UnionAffiliation;
 import com.salaryPayment.database.PayrollDatabase;
@@ -9,7 +11,7 @@ import com.salaryPayment.transaction.Transaction;
 
 public class AddServiceChargeTransation implements Transaction {
 	private int itsMemberId;
-	private long itsDate;
+	private Date itsDate;
 	private double itsCharge;
 	
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
@@ -18,7 +20,7 @@ public class AddServiceChargeTransation implements Transaction {
 		
 	}
 	
-	public AddServiceChargeTransation(int memberId, long date, double charge) {
+	public AddServiceChargeTransation(int memberId, Date date, double charge) {
 		itsMemberId = memberId;
 		itsDate = date;
 		itsCharge = charge;

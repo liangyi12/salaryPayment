@@ -2,6 +2,8 @@ package com.salaryPayment.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
+
 import org.junit.Test;
 
 import com.salaryPayment.affiliation.UnionAffiliation;
@@ -29,10 +31,12 @@ public class TestAddServiceCharge {
 		
 		gpayrollDatabase.addUnionMember(memberid, e);
 		
-		AddServiceChargeTransation st = new AddServiceChargeTransation(memberid, 12333, 12.95);
+		Date date = new Date();
+		
+		AddServiceChargeTransation st = new AddServiceChargeTransation(memberid, date, 12.95);
 		st.excute();
 		
-		ServiceCharge sc = af.getServiceCharge(12333);
+		ServiceCharge sc = af.getServiceCharge(date.getTime());
 		assertNotNull(sc);
 		assertEquals(12.95, sc.getAmount(), .01);
 		

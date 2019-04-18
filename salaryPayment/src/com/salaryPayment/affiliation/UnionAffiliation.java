@@ -2,9 +2,11 @@ package com.salaryPayment.affiliation;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.salaryPayment.domain.Paycheck;
 import com.salaryPayment.domain.ServiceCharge;
+import com.salaryPayment.util.DateUtil;
 
 public class UnionAffiliation implements Affiliation {
 	private int memberId;
@@ -22,7 +24,7 @@ public class UnionAffiliation implements Affiliation {
 	}
 
 	public void addServiceCharge(ServiceCharge serviceCharge) {
-		serviceCharges.put(serviceCharge.getDate(), serviceCharge);
+		serviceCharges.put(serviceCharge.getDate().getTime(), serviceCharge);
 		
 	}
 
@@ -48,8 +50,16 @@ public class UnionAffiliation implements Affiliation {
 
 	@Override
 	public double calculateDeductions(Paycheck pc) {
+		double service_charges = 0;
+		int numberOfFridayInPayPeriod = DateUtil.numberOfFridayBetweenTwoDate(pc.getPayPeriodStartDate(), pc.getPayPeriodEndDate());
+		for (Entry<Long, ServiceCharge> entry : serviceCharges.entrySet()) {
+			ServiceCharge sc = entry.getValue();
+			if (DateUtil.isBetween(sc.getDate(), pc.getPayPeriodStartDate(), pc.getPayPeriodEndDate())) {
+				service_charges += sc.getAmount();
+			}
+		}
 		
-		return 0;
+		return dues * numberOfFridayInPayPeriod + service_charges;
 	}
 	
 	

@@ -132,7 +132,7 @@ public class TestPaySingleHourlyEmployee {
 	public void validatePayCheck(PayDayTransation pt, Date payDate, double grossPay, double deductions, double netpay) {
 		Paycheck pc = pt.getPayCheck(empid);
 		assertNotNull(pc);
-		assertEquals(payDate, pc.getPayDate());
+		assertEquals(payDate, pc.getPayPeriodEndDate());
 		assertEquals(grossPay, pc.getGrossPay(), .001);
 		assertEquals(deductions, pc.getDeductions(), .001);
 		assertEquals(netpay, pc.getNetPay(), .001);

@@ -93,6 +93,10 @@ public class Employee {
 		method.pay(pc);
 	}
 
+	public Date getPayPeriodStartDate(Date payDate) {
+		return schedule.getPayPeriodStartDate(payDate);
+	}
+
 	
 
 }

@@ -2,9 +2,11 @@ package com.salaryPayment.payment.classification;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.salaryPayment.domain.Paycheck;
 import com.salaryPayment.domain.SalesReceipt;
+import com.salaryPayment.util.DateUtil;
 
 public class CommissionedClassification implements PaymentClassification {
 	private double salary;
@@ -38,7 +40,7 @@ public class CommissionedClassification implements PaymentClassification {
 	}
 
 	public void addSalesReceipt(SalesReceipt sr) {
-		salesReceipts.put(sr.getDate(), sr);
+		salesReceipts.put(sr.getDate().getTime(), sr);
 	}
 
 	public SalesReceipt getSalesReceipt(long date) {
@@ -47,8 +49,17 @@ public class CommissionedClassification implements PaymentClassification {
 
 	@Override
 	public double calculatePay(Paycheck pc) {
-		// TODO Auto-generated method stub
-		return 0;
+		double grossPay = this.salary;
+		for (Entry<Long, SalesReceipt> entry: salesReceipts.entrySet()) {
+			SalesReceipt sr = entry.getValue();
+			if (DateUtil.isBetween(sr.getDate(), pc.getPayPeriodStartDate(), pc.getPayPeriodEndDate())) {
+				grossPay += calculateForSalesReceipt(sr);
+			}
+		}
+		return grossPay;
 	}
-	
+
+	private double calculateForSalesReceipt(SalesReceipt sr) {
+		return sr.getAmount() * commissionRate;
+	}
 }

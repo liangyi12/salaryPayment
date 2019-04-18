@@ -3,13 +3,15 @@ package com.salaryPayment.domain;
 import java.util.Date;
 
 public class Paycheck {
-	private Date payDate;
+	private Date payPeriodStartDate;
+	private Date payPeriodEndDate;
 	private double grossPay;
 	private double deductions;
 	private double netPay;
-	
-	public Paycheck(Date payDate) {
-		this.payDate = payDate;
+
+	public Paycheck(Date payPeriodStartDate, Date payPeriodEndDate) {
+		this.payPeriodStartDate = payPeriodStartDate;
+		this.payPeriodEndDate = payPeriodEndDate;
 	}
 
 	public double getGrossPay() {
@@ -36,16 +38,20 @@ public class Paycheck {
 		this.netPay = netPay;
 	}
 
-	public Date getPayDate() {
-		return payDate;
+	public Date getPayPeriodStartDate() {
+		return payPeriodStartDate;
 	}
 
-	public void setPayDate(Date payDate) {
-		this.payDate = payDate;
+	public void setPayPeriodStartDate(Date payPeriodStartDate) {
+		this.payPeriodStartDate = payPeriodStartDate;
 	}
-	
-	
-	
-	
-	
+
+	public Date getPayPeriodEndDate() {
+		return payPeriodEndDate;
+	}
+
+	public void setPayPeriodEndDate(Date payPeriodEndDate) {
+		this.payPeriodEndDate = payPeriodEndDate;
+	}
+
 }

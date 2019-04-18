@@ -35,7 +35,7 @@ public class TestPaySingleSalariedEmployee {
 		
 		Paycheck pc = pt.getPayCheck(empid);
 		assertNotNull(pc);
-		assertEquals(payDate, pc.getPayDate());
+		assertEquals(payDate, pc.getPayPeriodEndDate());
 		assertEquals(1000.00, pc.getGrossPay(), .001);
 		assertEquals(0.00, pc.getDeductions(), .001);
 		assertEquals(1000.00, pc.getNetPay(), .001);

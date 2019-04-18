@@ -1,13 +1,12 @@
 package com.salaryPayment.payment.classification;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import com.salaryPayment.domain.Paycheck;
 import com.salaryPayment.domain.TimeCard;
+import com.salaryPayment.util.DateUtil;
 
 public class HourlyClassification implements PaymentClassification{
 	private double hourlyRate;
@@ -41,11 +40,10 @@ public class HourlyClassification implements PaymentClassification{
 	@Override
 	public double calculatePay(Paycheck pc) {
 		double grossPay = 0;
-		Date payDate = pc.getPayDate();
-
+		
 		for (Entry<Long, TimeCard> entry : timcards.entrySet()) {
 			TimeCard tc = entry.getValue();
-			if (isInPayPeriod(tc, payDate)) {
+			if (DateUtil.isBetween(tc.getDate(), pc.getPayPeriodStartDate(), pc.getPayPeriodEndDate())) {
 				grossPay += calculatePayForTimeCard(tc);
 			}
 		}
@@ -58,23 +56,5 @@ public class HourlyClassification implements PaymentClassification{
 		double straightTime = hours - overtime;
 		return straightTime * hourlyRate + overtime * hourlyRate * 1.5;
 	}
-
-	public boolean isInPayPeriod(TimeCard tc, Date payPeriod) {
-		Date tc_date = tc.getDate();
-		Date payPeriodEndDate = payPeriod;
-		
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(payPeriod);
-		calendar.add(Calendar.DAY_OF_MONTH, -4);
-		
-		Date payPeriodBeginDate = calendar.getTime();
-		
-		int lesser = payPeriodBeginDate.compareTo(tc_date); //<=0
-		int greater = payPeriodEndDate.compareTo(tc_date); // >=0
-		
-		return (lesser <=0 && greater >= 0);
-	}
-	
-	
 	
 }

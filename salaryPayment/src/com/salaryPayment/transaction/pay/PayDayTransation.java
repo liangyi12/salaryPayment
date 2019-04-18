@@ -30,7 +30,7 @@ public class PayDayTransation implements Transaction {
 		for (Employee e : employees) {
 			boolean isPayDay = e.isPayDate(payDate);
 			if (isPayDay) {
-				Paycheck pc = new Paycheck(payDate);
+				Paycheck pc = new Paycheck(e.getPayPeriodStartDate(payDate), payDate);
 				paychecks.put(e.getEmpid(), pc);
 				e.payDay(pc);
 			}
