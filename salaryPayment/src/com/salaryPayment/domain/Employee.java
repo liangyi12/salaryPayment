@@ -3,6 +3,7 @@ package com.salaryPayment.domain;
 import java.util.Date;
 
 import com.salaryPayment.affiliation.Affiliation;
+import com.salaryPayment.affiliation.NoAffiliation;
 import com.salaryPayment.payment.classification.PaymentClassification;
 import com.salaryPayment.payment.method.PaymentMethod;
 import com.salaryPayment.payment.schedule.PaymentSchedule;
@@ -14,7 +15,7 @@ public class Employee {
 	private PaymentClassification classification;
 	private PaymentSchedule schedule;
 	private PaymentMethod method;
-	private Affiliation affiliation;
+	private Affiliation affiliation = new NoAffiliation();
 
 	public Employee(int itsEmpid, String itsName, String itsAddress) {
 		this.empid = itsEmpid;
