@@ -10,11 +10,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.payroll.Payroll;
 
 
 public class PayrollTest {
-
+	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
 	
 	Payroll payroll = null;
 	@Before
@@ -25,6 +26,7 @@ public class PayrollTest {
 	@After
 	public void tearDown() throws Exception {
 		payroll = null;
+		gpayrollDatabase.clear();
 	}
 
 	@Test
@@ -37,6 +39,7 @@ public class PayrollTest {
 		
 		
 		Date payDay = parseDate("2019-4-30");
+		//Map<String, Double> payments = payroll.payFor(payDay);
 		Map<String, Double> payments = payroll.payFor(payDay);
 		Assert.assertEquals(2, payments.size());
 		Assert.assertEquals(Double.valueOf(1000.0), payments.get("101"),0.001);
@@ -53,6 +56,7 @@ public class PayrollTest {
 		payroll.parse(commands);
 		
 		Date payDay = parseDate("2019-4-26"); //Friday
+		//Map<String, Double> payments = payroll.payFor(payDay);
 		Map<String, Double> payments = payroll.payFor(payDay);
 
 		Assert.assertEquals(1, payments.size());
@@ -70,6 +74,7 @@ public class PayrollTest {
 		payroll.parse(commands);
 
 		Date payDay = parseDate("2019-4-30");
+		//Map<String, Double> payments = payroll.payFor(payDay);
 		Map<String, Double> payments = payroll.payFor(payDay);
 
 		

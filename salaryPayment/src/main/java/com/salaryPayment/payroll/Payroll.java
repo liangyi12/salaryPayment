@@ -52,6 +52,7 @@ public class Payroll {
 		Map<String, Double> payments = new HashMap<String, Double>();
 		PayDayTransation pt = new PayDayTransation(d);
 		pt.excute();
+		
 
 		
 		for (Employee e : gpayrollDatabase.getEmployees()) {
