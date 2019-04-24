@@ -8,12 +8,14 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import com.salaryPayment.database.PayrollDatabase;
 import com.salaryPayment.payroll.Payroll;
 
-
+@FixMethodOrder(MethodSorters.DEFAULT)
 public class PayrollTest {
 	PayrollDatabase gpayrollDatabase = PayrollDatabase.gpayrollDatabase;
 	
@@ -26,7 +28,6 @@ public class PayrollTest {
 	@After
 	public void tearDown() throws Exception {
 		payroll = null;
-		gpayrollDatabase.clear();
 	}
 
 	@Test
